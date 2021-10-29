@@ -1,0 +1,14 @@
+before:
+  hooks:
+  - go mod tidy
+  - go generate ./...
+builds:
+- env:
+  - CGO_ENABLED=0
+  goarch:
+  - amd64
+dockers:
+- image_templates:
+  - 'ghcr.io/jgustie/{{ .ProjectName }}:sha-{{ .ShortCommit }}'
+  build_flag_templates:
+  - "--label=org.opencontainers.image.source={{ .GitURL }}"
