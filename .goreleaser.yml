@@ -13,5 +13,5 @@ dockers:
 - image_templates:
   - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}'
   build_flag_templates:
-  - "--label=org.opencontainers.image.source={{ .GitURL }}"
+  - "--label=org.opencontainers.image.source=https://github.com/jgustie/test-package-trigger"
   - "--push"
