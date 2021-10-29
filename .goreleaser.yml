@@ -14,3 +14,5 @@ dockers:
   - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}'
   build_flag_templates:
   - "--label=org.opencontainers.image.source={{ .GitURL }}"
+  - "--push"
+  skip_push: true
