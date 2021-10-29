@@ -3,8 +3,6 @@ on:
   push:
     branches:
     - main
-    tags:
-    - v*
 
 jobs:
   deploy:
@@ -12,8 +10,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      #with:
+      #  fetch-depth: 0
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
@@ -22,4 +20,4 @@ jobs:
       uses: goreleaser/goreleaser-action@v2
       with:
         version: latest
-        args: release --rm-dist
+        args: release --rm-dist --skip-publish=false

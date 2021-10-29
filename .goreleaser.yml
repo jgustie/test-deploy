@@ -7,8 +7,10 @@ builds:
   - CGO_ENABLED=0
   goarch:
   - amd64
+snapshot:
+  name_template: 'sha-{{ .ShortCommit }}'
 dockers:
 - image_templates:
-  - 'ghcr.io/jgustie/{{ .ProjectName }}:sha-{{ .ShortCommit }}'
+  - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}'
   build_flag_templates:
   - "--label=org.opencontainers.image.source={{ .GitURL }}"
