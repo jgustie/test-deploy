@@ -5,7 +5,8 @@ on:
     - main
 
 jobs:
-  deploy:
+  pull-request:
+    name: Pull Request
     uses: gramLabs/.github/.github/workflows/pull-request-go.yaml@main
     secrets:
       ssh-private-key: ${{ secrets.key }}

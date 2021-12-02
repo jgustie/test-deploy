@@ -5,7 +5,8 @@ on:
     - main
 
 jobs:
-  deploy:
+  main:
+    name: Main
     uses: gramLabs/.github/.github/workflows/main-go.yaml@main
     secrets:
       ssh-private-key: ${{ secrets.key }}
