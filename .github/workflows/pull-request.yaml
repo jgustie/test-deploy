@@ -5,10 +5,8 @@ on:
     - main
 
 jobs:
-  pull-request:
-    name: Pull Request
+  go:
+    name: Go
     uses: gramLabs/.github/.github/workflows/pull-request-go.yaml@main
     secrets:
       ssh-private-key: ${{ secrets.key }}
-      ghcr-username: jgustie
-      ghcr-password: ${{ secrets.PAT }}
