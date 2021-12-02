@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: gramLabs/.github/workflows/main-go@main
+    - uses: gramLabs/.github/workflows/main-go.yaml@main
       with:
         ssh-private-key: ${{ secrets.key }}
         ghcr-username: jgustie
