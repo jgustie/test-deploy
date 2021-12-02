@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     uses: gramLabs/.github/.github/workflows/main-go.yaml@main
-    with:
+    secrets:
       ssh-private-key: ${{ secrets.key }}
       ghcr-username: jgustie
       ghcr-password: ${{ secrets.PAT }}
