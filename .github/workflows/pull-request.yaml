@@ -1,0 +1,13 @@
+name: Pull Request
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    uses: gramLabs/.github/.github/workflows/pull-request-go.yaml@main
+    secrets:
+      ssh-private-key: ${{ secrets.key }}
+      ghcr-username: jgustie
+      ghcr-password: ${{ secrets.PAT }}
