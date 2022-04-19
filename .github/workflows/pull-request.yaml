@@ -12,6 +12,7 @@ jobs:
       ssh-private-key: ${{ secrets.key }}
   deploy:
     name: Deploy
+    runs-on: ubuntu-latest
     if: ${{ contains(github.event.pull_request.labels.*.name, 'deploy') }}
     steps:
     - name: Deploy
