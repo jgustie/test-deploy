@@ -10,3 +10,10 @@ jobs:
     uses: gramLabs/.github/.github/workflows/pull-request-go.yaml@main
     secrets:
       ssh-private-key: ${{ secrets.key }}
+  deploy:
+    name: Deploy
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'deploy') }}
+    steps:
+    - name: Deploy
+      run: |
+        echo "So much running"
