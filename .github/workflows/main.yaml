@@ -8,3 +8,5 @@ jobs:
   go:
     name: Go
     uses: gramLabs/.github/.github/workflows/main-go.yaml@main
+    secrets:
+      gh-token: ${{ github.token }}
