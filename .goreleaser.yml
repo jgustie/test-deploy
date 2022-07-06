@@ -7,11 +7,26 @@ builds:
   - CGO_ENABLED=0
   goarch:
   - amd64
+  - arm64
 snapshot:
   name_template: 'sha-{{ .ShortCommit }}'
 dockers:
 - image_templates:
-  - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}'
+  - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}-amd64'
+  goarch: amd64
   build_flag_templates:
+  - "--platform=linux/amd64"
   - "--label=org.opencontainers.image.source={{ .GitURL }}"
   - "--push"
+- image_templates:
+  - 'ghcr.io/jgustie/{{ .ProjectName }}:{{ .Version }}-arm64v8'
+  goarch: arm64
+  build_flag_templates:
+  - "--platform=linux/arm64/v8"
+  - "--label=org.opencontainers.image.source={{ .GitURL }}"
+  - "--push"
+docker_manifests:
+- name_template: "ghcr.io/jgustie/{{.ProjectName}}:{{.Version}}"
+  image_templates:
+  - "ghcr.io/jgustie/{{.ProjectName}}:{{.Version}}-amd64"
+  - "ghcr.io/jgustie/{{.ProjectName}}:{{.Version}}-arm64v8"
